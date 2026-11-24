@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.md> :first-child {
+  margin-top: 0;
+}
+
+.md> :last-child {
+  margin-bottom: 0;
+}
+
+.md p,
+.md ul,
+.md ol,
+.md pre,
+.md table {
+  margin: 0.5rem 0;
+}
+
+.md ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.md ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+
+.md a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.md code {
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-size: 0.85em;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+.md pre {
+  overflow-x: auto;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.md pre code {
+  background: none;
+  padding: 0;
+}
+
+.md table {
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+}
+
+.md th,
+.md td {
+  border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  padding: 0.25rem 0.5rem;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor::after {
+  content: "▍";
+  animation: blink 1s steps(1) infinite;
+}

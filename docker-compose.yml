@@ -1,0 +1,17 @@
+services:
+  agent:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      AGENT_DEMO_MODE: "true"
+      AGENT_MCP_SERVERS_FILE: config/mcp_servers.docker.json
+      AGENT_LLM_MODEL: ${AGENT_LLM_MODEL:-groq:llama-3.3-70b-versatile}
+      GROQ_API_KEY: ${GROQ_API_KEY:?set GROQ_API_KEY in .env}
+    volumes: ["agent_data:/app/data"]
+    depends_on: [demo-mcp]
+  demo-mcp:
+    build: .
+    command: ["python", "packs/demo/server.py"]
+    environment: { HOST: "0.0.0.0", PORT: "8001" }
+volumes:
+  agent_data:

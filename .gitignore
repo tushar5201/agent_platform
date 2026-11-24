@@ -1,0 +1,15 @@
+.idea
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+data/
+*.db
+*.db-wal
+*.db-shm
+.pytest_cache/
+.ruff_cache/
+node_modules/
+ui/dist/
